@@ -18,9 +18,15 @@
       user: "{{ bigip_user }}"
       password: "{{ bigip_pass }}"
       method: "{{ uri_method }}"
-      body: "{{ lookup('file','as3-declaration-aws1.json') }}"
+      body: "{{ lookup('file','as3-declaration.json') }}"
       validate_certs: false
       force_basic_auth: yes
       status_code: 200
       body_format: json
+    register: as3_response
+
+  - name: AS3 RESPONSE OUTPUT
+    debug:
+      msg: "{{as3_response }}"
+      
 ...

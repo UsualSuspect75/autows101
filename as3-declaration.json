@@ -16,6 +16,7 @@
                 "template": "http",
                 "serviceMain": {
                     "class": "Service_HTTP",
+                    "remark": "ANSIBLE_VS_REMARK",
                     "virtualAddresses": [
                         "10.0.6.10"
                     ],
@@ -23,12 +24,15 @@
                 },
                 "web_pool": {
                     "class": "Pool",
+                    "label": "ANSIBLE_TEST",
+                    "remark": "ANSIBLE_REMARK",
                     "monitors": [
                         "http"
                     ],
                     "members": [
                         {
                             "servicePort": 80,
+                            "remark": "ANSIBLE_POOL_M",
                             "serverAddresses": [
                                 "10.0.6.200",
                                 "10.0.6.201"
